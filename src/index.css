@@ -57,3 +57,14 @@ a , a:hover{
 {
     background-color: var(--light-color) !important;
 }
+
+  .network-status{
+   position: fixed;
+   bottom: 40px;
+   right: 40px;
+    background-color: white;
+    color: red;
+    border: 1px solid red !important;
+    border-radius: 2rem;
+
+  }

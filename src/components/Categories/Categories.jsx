@@ -8,9 +8,8 @@ export default function Categories() {
   
   async function getCategory(){
     let {data}= await axios.get("https://route-ecommerce.onrender.com/api/v1/categories")
+    console.log(data);
     setCategories(data.data)
-    
-    
   }
   useEffect(()=>{
   getCategory()

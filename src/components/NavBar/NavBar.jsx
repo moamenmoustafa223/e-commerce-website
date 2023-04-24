@@ -2,7 +2,10 @@ import React from 'react'
 import styles from "./NavBar.module.css"
 import { Link } from 'react-router-dom'
 
+
 export default function NavBar({userData,logOut}) {
+  
+
   return (
     <>
     <nav className="navbar navbar-expand-lg bg-dark navbar-dark">

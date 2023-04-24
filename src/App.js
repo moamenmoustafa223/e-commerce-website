@@ -14,6 +14,9 @@ import jwtDecode from "jwt-decode"
 import { useEffect, useState } from 'react';
 import ProtectedRoutes from './components/ProtectedRoutes/ProtectedRoutes';
 
+import CartContextProvider from './Context/CartContext';
+import { Toaster } from 'react-hot-toast';
+
 
 
 
@@ -41,8 +44,10 @@ useEffect(()=>{
   element:<Layout userData={userData} setUserData={setUserData}/>,
   children:[
     {index:true,element:
-      <Home/>
-     },
+      <ProtectedRoutes>
+        <Home/>
+  </ProtectedRoutes>},
+    
     
     {path:"login",element:<Login saveUser={saveUser} />},
     {path:"register", element:<Register/>},
@@ -60,10 +65,11 @@ useEffect(()=>{
 
 
   return (<>
-  <RouterProvider router={routes}>
-
-</RouterProvider>
   
+<CartContextProvider>
+<Toaster></Toaster>
+  <RouterProvider router={routes}></RouterProvider>
+  </CartContextProvider>
   
   
   </>

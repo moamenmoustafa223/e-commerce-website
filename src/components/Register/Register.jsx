@@ -4,6 +4,7 @@ import {Formik, useFormik} from 'formik'
 import * as Yup from 'yup';
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
+import {Helmet} from "react-helmet";
 
 export default function Register() {
   const [isLoading,setIsLoading]=useState(false)
@@ -86,6 +87,11 @@ let mySchema= Yup.object({
   })
   return (
     <>
+  <Helmet>
+                <meta charSet="utf-8" />
+                <title>Signup</title>
+              
+            </Helmet>
    <div className="container my-5 w-75">
     <h3>Register Now</h3>
    
