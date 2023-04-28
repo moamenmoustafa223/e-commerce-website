@@ -2,9 +2,10 @@ import React, { useContext, useEffect, useState } from 'react'
 import styles from "./Cart.module.css"
 import { CounterContext } from '../../Context/CounterContext'
 import { CartContext } from '../../Context/CartContext'
-import { Offline, Online } from "react-detect-offline";
+
 import {Helmet} from "react-helmet";
 import toast from 'react-hot-toast';
+import { Link } from 'react-router-dom'
 
 export default function Cart() {
 
@@ -43,12 +44,11 @@ getCartDetails()
       position:'bottom-right',
       className:"textcenter box-shadow"
     })} */}
-  <Offline> <span className='network-status box-shadow p-3 '>you're offline</span>  </Offline>
    <div className="container py-5 my-5">
     <div className="bg-main-light p-5">
     <h3>Cart Details</h3>
     <h4>Total Price:{cartDetails?.data?.totalCartPrice} </h4>
-    {cartDetails?.data?.products.map((product)=>   <div key={product.product._id} className="row border-bottom border-bottom-danger p2 ">
+    {cartDetails?.data?.products.map((product)=>   <div key={product.product._id} className="row border-bottom border-bottom-danger p2 mb-3 ">
     <div className="col-md-1">
       <img src={product.product.imageCover} className='w-100' alt="" />
     </div>
@@ -65,8 +65,10 @@ getCartDetails()
       </div>
    
     </div>
+   
     </div>)}
-
+    
+    <Link to={"/checkout"} className='btn bg-main text-white '> procced to payment</Link>
    
     </div>
   

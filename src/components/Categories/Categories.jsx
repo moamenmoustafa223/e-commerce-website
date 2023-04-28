@@ -11,6 +11,7 @@ export default function Categories() {
     console.log(data);
     setCategories(data.data)
   }
+
   useEffect(()=>{
   getCategory()
   },[])
@@ -26,7 +27,7 @@ export default function Categories() {
     <>
 
      <Slider {...settings}>
-     {categories.map((category)=><div>
+     {categories.map((category,index)=><div key={index}>
       <img height={300} width={'100%'} src={category.image} alt="" />
       <h3 className="fs-6">{category.name} </h3>
      </div>
